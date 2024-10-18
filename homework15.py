@@ -21,4 +21,8 @@ if product:
         with open('phone.png', 'wb') as img_file:
             img_file.write(img_response.content)
 
+premium_products = [product for product in response_json['products'] if product['price'] > 800]
+total_value = sum(product['price'] * product['stock'] for product in premium_products)
+print(f"Загальна вартість преміальних товарів: {total_value}")
+
 pass
